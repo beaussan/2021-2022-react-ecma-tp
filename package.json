@@ -1,0 +1,43 @@
+{
+  "name": "2020-2021-angular-ecma-tp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/node": "^7.12.16",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.13",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.16",
+    "@babel/plugin-transform-destructuring": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-stage-3": "^7.8.3",
+    "axios": "^0.21.1",
+    "fastify": "^3.12.0",
+    "nodemon": "^2.0.7",
+    "zod": "^3.11.6"
+  },
+  "devDependencies": {
+    "husky": "5.0.9",
+    "prettier": "2.2.1",
+    "pretty-quick": "3.1.0",
+    "start-server-and-test": "^1.14.0",
+    "vitest": "^0.3.4"
+  },
+  "scripts": {
+    "start": "nodemon exec babel-node index.js",
+    "test": "start-server-and-test test:server http://localhost:5000 test:run",
+    "test:server": "babel-node index.js",
+    "test:run": "vitest run",
+    "format:write": "prettier --write \"**/*.{js,vue,json,ts,tsx,md,yml,html}\"",
+    "format:check": "prettier --list-different \"**/*.{js,vue,json,ts,tsx,md,yml,html}\""
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "type": "module",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
